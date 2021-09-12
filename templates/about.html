@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{%block aboutact%}active{%endblock aboutact%}
+{%block body%}
+
+
+<div class="container">
+
+  <div class="jumbotron">
+    <h1 class="display-4">About Us</h1>
+    <p class="lead"></p>
+    <hr class="my-4">
+    <p>Zer0day Hunters is a global enterprise for IT Security Training. The company serves IT Security Training & Consultancy Services to Businesses, Governments and Institutions over the Globe. We provide training and education in the field of Ethical Hacking & Information Security to the students as well as the corporate. These trainings can be provided at client locations and at Zer0day Hunters platform.</p>
+  </div>
+
+
+</div>
+
+
+<div class="container" id="boxx">
+  <h3>We provide training in the following...</h3>
+</div>
+
+
+ <div class="container">
+
+
+    
+<div class="py-5">
+
+  <div class="row">
+    <!-- DEMO 1 Item-->
+    {%for a in ab%}
+    <div class="col-lg-4 mb-4 mb-lg-0">
+      <div class="hover hover-1 text-white rounded"><img src="{{a.img}}" alt="">
+        <div class="hover-overlay"></div>
+        <div class="hover-1-content px-5 py-4">
+          <h3 class="hover-1-title text-uppercase font-weight-bold mb-0"> <a href="/training" style="color: white;">{{a.title}}</a></h3>
+          {% comment %} <p class="hover-1-description font-weight-light mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> {% endcomment %}
+        </div>
+      </div>
+    </div>
+ {%endfor%}  
+  </div>
+  
+</div>
+
+</div>
+
+
+{%endblock body%}

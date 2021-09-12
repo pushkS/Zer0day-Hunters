@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{%block homeact%}active{%endblock homeact%}
+{%block body%}
+
+
+<div class="container">
+<div class="jumbotron">
+    <h1 class="display-4"> Bug Bounty Program</h1>
+    <p class="lead"></p>
+    <hr class="my-4">
+    <p>Bug Bounty program and bug bounty hunters are the names which we can hear a lot of times these days. Actually, this is a deal that is provided by a lot of websites and the software developers to all those individuals who will hunt the bugs in their website and inform the respective organization. By doing this bug hunting the individuals can earn recognization and the compensation for reporting the bugs.
+If you have decided to be a Bug hunter or a security researcher and don’t know what is bug bounty and how to start where to start.
+To know in deep about it read the whole blog.
+</p>
+    {% comment %} <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </p> {% endcomment %}
+  </div>
+</div>
+
+  {%for i in ind%}
+<div class="container" id="cot" >
+          <h2> {{i.title}}</h2>
+          <p> {{i.content}}</p>
+</div>
+  {% endfor %}
+
+
+
+  
+<div class="container" id="cot">
+  <h2>What Zer0day Hunters has to offer : ?</h2>
+  <p>We teach you to hunt on live website Visit our <a href="/training" style="color: blue; background-color: white;">Training page</a>  </p>
+</div>
+
+{%endblock body%}
+
+
+
+

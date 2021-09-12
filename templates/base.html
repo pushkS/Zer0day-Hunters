@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zer0day Hunter</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/"><img id="img" src="/static/img/apple-touch-icon.png" alt=""></a>
+
+        <a class="navbar-brand" href="/">
+            <h3> Zer0day Hunters</h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item {%block homeact%}{%endblock homeact%}">
+                    <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item  {%block aboutact%}{%endblock aboutact%}">
+                    <a class="nav-link" href="/about">About<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item {%block caract%}{%endblock caract%}">
+                    <a class="nav-link" href="/career">Careers<span class="sr-only"> </span></a>
+                </li>
+                
+
+
+                <li class="nav-item {%block train%}{%endblock train%}">
+                    <a class="nav-link" href="/training">Training</a>
+                </li>
+
+                <li class="nav-item {%block contactact%}{%endblock contactact%}">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+
+            </ul>
+
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
+  Register Now
+  </button>
+
+            <!-- Modal -->
+            <!-- <div id="app"> -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Register here...</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+
+                            <form action="/contact" method="POST" role="form" class="php-email-form">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div class="validate"></div>
+                                    </div>
+                                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                        <div class="validate"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Phone Number" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                    <div class="validate"></div>
+                                </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a href="/templates/thankyou.html"> <button type="submit" class="btn btn-primary"> Register </button></a>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- </div> -->
+
+        </div>
+    </nav>
+    {% if messages %} {% for m in messages %}
+
+    <div class="alert alert-success" id="msg" role="alert">
+        <h4 class="alert-heading" style="text-align: center;"> {{m}} For Your Interest... </h4>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <hr>
+        <p style="text-align: center;">
+            We Will Contact You Shortly...</p>
+
+    </div>
+
+    {% comment %} <script>
+        swal("{{m}}", "You clicked the button!", "success");
+    </script> {% endcomment %}
+
+    {% endfor %} {%endif%} 
+    
+    {%block body%} {%endblock body%}
+    <!-- {% if messages %} {% for m in messages %}
+    <script>
+        Swal.fire(
+            '{{m}}',
+            'You clicked the button!',
+            'success'
+        )
+    </script>
+    {% endfor %} {%endif%} -->
+
+
+    <footer id="footer">
+        <div class="container">
+            <h3>Zer0day Hunters</h3>
+            <div class="social-links">
+                <a href="https://twitter.com/zer0day_hunters" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/zer0day-hunters" class="facebook"><i class="fa fa-linkedin"></i></a>
+                <a href="https://instagram.com/zer0day_hunters?igshid=4gk1mkv5ut81" class="instagram"><i class="fa fa-instagram"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; Copyright 2021 <strong><span>Zer0day;</span></strong>. All Rights Reserved
+            </div>
+        </div>
+    </footer>
+
+</body>
+<!-- <script src="https://unpkg.com/vue@next"></script>
+<script src="{% static 'js/app.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script> -->
+<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>

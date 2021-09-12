@@ -1,0 +1,1 @@
+web: gunicorn Zeroday_hunter.wsgi --log-file -

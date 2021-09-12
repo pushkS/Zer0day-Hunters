@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {%block caract%}active{%endblock caract%} {%block body%}
+
+<div class="container">
+
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Careers</h1>
+            <p class="lead">We are looking for you</p>
+            <hr class="my-4"> {%for a in carr%}
+            <div>
+                <h1>{{a.notice}}</h1>
+
+                <h2 style="font-family: cursive;"> {{a.title}} </h2>
+                <h4>{{a.title_tag}}</h3>
+                    <p>{{a.contents}}</p>
+                    <br><br>
+                    <a target="_blank" href="/contact" role="button">{{a.title_butt}}</a>
+
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+
+</div>
+{%for b in carr%}
+<img src="{{a.img}}" alt=""> {%endfor%}{%endblock body%}

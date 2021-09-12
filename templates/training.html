@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {%block train%}active{%endblock train%} {%block body%}
+
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Training Section</h1>
+        <p class="lead">Types of Training provided...</p>
+        <hr class="my-4">
+        <p>
+
+            {%for a in tra%}
+            <ul>
+                <li>
+                    <h3>{{a.title}}</h3>
+                    <p>{{a.contents}}</p>
+                    <hr>
+                </li>
+            </ul>
+            {%endfor%}
+
+        </p>
+        <br><br>
+        <p class="lead">
+            <a class="btn btn-dark btn-lg" href="/contact" role="button">Register Now</a>
+            <em>To apply the course contact us...</em>
+        </p>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+{%endblock body %}
